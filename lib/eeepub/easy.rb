@@ -44,7 +44,8 @@ module EeePub
     #
     # @param [String] filename the ePub file name to save
     def save(filename)
-      Dir.mktmpdir do |dir|
+      dir = Dir.mktmpdir
+      begin
         prepare(dir)
 
         NCX.new(
@@ -72,6 +73,7 @@ module EeePub
           :dir => dir,
           :container => @opf_file
         ).save(filename)
+      ensure
       end
     end
 
@@ -80,7 +82,7 @@ module EeePub
     def prepare(dir)
       filenames = []
       sections.each_with_index do |section, index|
-        filename = File.join(dir, "section_#{index}.html")
+        filename = File.join(dir, "page0#{index}.xhtml")
         File.open(filename, 'w') { |file| file.write section[1] }
         filenames << filename
       end

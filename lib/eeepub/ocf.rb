@@ -133,7 +133,8 @@ module EeePub
         <?xml version="1.0" encoding="UTF-8"?>
         <display_options>
             <platform name="*">
-                <option name="specified-fonts">true</option>
+              <option name="fixed-layout">true</option>  
+              <option name="specified-fonts">true</option>
             </platform>
         </display_options>
       |

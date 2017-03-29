@@ -66,7 +66,8 @@ module EeePub
           :rights => @rightss,
           :relation => @relations,
           :manifest => @files.map{|i| File.basename(i)},
-          :ncx => @ncx_file
+          :ncx => @ncx_file,
+          :cover => @cover
         ).save(File.join(dir, @opf_file))
 
         OCF.new(

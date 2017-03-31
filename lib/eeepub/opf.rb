@@ -85,6 +85,9 @@ module EeePub
           end
         end
         builder.meta(:name => 'cover', :content => self.cover) if self.cover
+        builder.meta(:name => 'fixed-layout', :content => "true")
+        builder.meta(:name => 'original-resolution', :content => "500x762")
+        builder.meta(:name => 'orientation-lock', :content => "portrait")
       end
     end
 
